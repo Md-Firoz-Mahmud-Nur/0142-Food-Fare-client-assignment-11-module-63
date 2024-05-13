@@ -2,10 +2,13 @@ import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider";
 import { Helmet } from "react-helmet-async";
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 const AddFood = () => {
   const { user } = useContext(AuthContext);
-  const handleAddFood = (e) => {
+  const queryClient = new QueryClient();
+
+  const handleAddFood = async (e) => {
     e.preventDefault();
     const form = e.target;
     const foodName = form.foodName.value;
@@ -31,32 +34,37 @@ const AddFood = () => {
       donatorUserPhotoURL,
       additionalNotes,
     };
-
-    fetch(
-      "http://localhost:3000/food",
-      {
+    try {
+      const response = await fetch("http://localhost:3000/food", {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
         body: JSON.stringify(newFood),
-      },
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Success!",
-            text: " Added Successfully",
-            icon: "success",
-            confirmButtonText: "Done",
-          });
-          form.reset();
-        }
       });
+
+      if (!response.ok) {
+        throw new Error("Failed to add food");
+      }
+
+      const data = await response.json();
+
+      if (data.insertedId) {
+        Swal.fire({
+          title: "Success!",
+          text: " Added Successfully",
+          icon: "success",
+          confirmButtonText: "Done",
+        });
+        form.reset();
+        queryClient.invalidateQueries("foodList");
+      }
+    } catch (error) {
+      console.error("Error adding food:", error);
+    }
   };
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <Helmet>
         <title>Food Fare | Add Food</title>
       </Helmet>
@@ -219,7 +227,7 @@ const AddFood = () => {
           </div>
         </form>
       </div>
-    </>
+    </QueryClientProvider>
   );
 };
 
