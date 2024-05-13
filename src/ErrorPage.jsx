@@ -21,7 +21,10 @@ const ErrorPage = () => {
           We cann&apos;t find the page you are looking for...
         </p>
         <br />
-        <Link className="btn btn-outline text-lg " to="/">
+        <Link
+          className="btn btn-outline   border-2  border-lime-600 bg-transparent text-xl   text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
+          to="/"
+        >
           Home
         </Link>
       </div>

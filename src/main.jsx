@@ -9,6 +9,8 @@ import AuthProvider from "./AuthProvider";
 import { HelmetProvider } from "react-helmet-async";
 import Register from "./Components/Register";
 import Home from "./Components/Home/Home";
+import AddFood from "./Components/AddFood";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/addFood",
+        element: (
+          <PrivateRoute>
+            <AddFood></AddFood>
+          </PrivateRoute>
+        ),
       },
     ],
   },
