@@ -13,7 +13,6 @@ const Register = () => {
   const location = useLocation();
   const [showPassword, setShowPassword] = useState(false);
 
-
   const navigate = useNavigate();
 
   const handleRegister = (e) => {
@@ -45,27 +44,27 @@ const Register = () => {
         setTimeout(() => {
           navigate(location?.state ? location.state : "/");
         }, 1500);
-
       })
       .catch((error) => {
-        toast.error(error.message)
-
+        toast.error(error.message);
       });
   };
 
   return (
     <>
       <Helmet>
-        <title>Register</title>
+        <title>Food Fare | Register</title>
       </Helmet>
-      <div className="hero px-5 md:px-20 pt-6 pb-2">
+      <div className="hero px-5 pb-2 pt-6 md:px-20">
         <div className="hero-content flex-col ">
           <div className="text-center ">
-            <h1 className="text-5xl font-bold">Please Register!</h1>
-            <p className="py-6">
-              Unlock your dream with our comprehensive Dream Tourism
-              listings. Register today for exclusive access to prime services
-              and personalized assistance.
+            <h1 className="text-5xl font-bold text-lime-600">
+              Please Register!
+            </h1>
+            <p className="py-6 text-lime-700">
+              Unlock your dream with our comprehensive Dream Tourism listings.
+              Register today for exclusive access to prime services and
+              personalized assistance.
             </p>
           </div>
           <div className="card w-full max-w-sm shrink-0 bg-base-100 shadow-2xl">
@@ -119,11 +118,11 @@ const Register = () => {
                     required
                   />
                   <button
-                    className="absolute right-2 top-4 ml-2"
+                    className="absolute right-2 top-4 ml-2 text-lime-600"
                     onClick={(e) => {
                       e.preventDefault();
                       setShowPassword(!showPassword);
-                    } }
+                    }}
                   >
                     {!showPassword ? <FaEye /> : <FaEyeSlash />}
                   </button>
@@ -131,14 +130,19 @@ const Register = () => {
                 <label className="label">
                   <p className="mt-4">
                     Already have an account? Please{" "}
-                    <Link className="btn-link" to="/login">
+                    <Link
+                      className="btn-link font-semibold text-lime-600"
+                      to="/login"
+                    >
                       Login
                     </Link>
                   </p>
                 </label>
               </div>
               <div className="form-control my-6">
-                <button className="btn btn-outline text-xl">Register</button>
+                <button className="btn btn-outline border-2  border-lime-600 bg-transparent text-xl   text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white">
+                  Register
+                </button>
               </div>
             </form>
           </div>
