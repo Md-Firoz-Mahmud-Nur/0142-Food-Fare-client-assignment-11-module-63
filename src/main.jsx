@@ -8,6 +8,7 @@ import Login from "./Components/Login";
 import AuthProvider from "./AuthProvider";
 import { HelmetProvider } from "react-helmet-async";
 import Register from "./Components/Register";
+import Home from "./Components/Home/Home";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
     element: <Root></Root>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+      },
       {
         path: "/login",
         element: <Login></Login>,
