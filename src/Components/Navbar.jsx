@@ -1,6 +1,16 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider";
 
 const Navbar = () => {
+  const { user, signOutUser, setUser } = useContext(AuthContext);
+  const signOut = () => {
+    signOutUser()
+      .then(() => {
+        setUser(null);
+      })
+      .catch(() => {});
+  };
   const links = (
     <>
       <li>
@@ -51,10 +61,10 @@ const Navbar = () => {
           >
             {links}
           </ul>
-        </div>{" "}
+        </div>
         <Link
           to="/"
-          className="btn btn-ghost hidden items-center text-xl md:flex "
+          className="btn btn-ghost items-center p-0 text-xl md:flex "
         >
           <img
             className="size-10"
@@ -64,22 +74,43 @@ const Navbar = () => {
         </Link>
         <Link
           to="/"
-          className="btn btn-ghost hidden items-center text-2xl md:flex "
+          className="btn btn-ghost hidden items-center p-0 pl-2 text-2xl md:flex "
         >
           Food Fare
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden lg:ml-20 lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end gap-4">
+      <div className="navbar-end gap-4"></div>
+      {user ? (
+        <>
+          <div
+            className="tooltip tooltip-bottom"
+            data-tip={
+              user.displayName ? user.displayName : "user name not found"
+            }
+          >
+            <div className="mr-2 size-10 rounded-full border border-lime-600">
+              <img className="rounded-full" alt="" src={user.photoURL} />
+            </div>
+          </div>
+          <Link
+            onClick={signOut}
+            to="/"
+            className="btn border-2 border-lime-600 bg-transparent text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
+          >
+            Logout
+          </Link>
+        </>
+      ) : (
         <Link
           to="/login"
-          className="btn border border-black bg-transparent  text-lg  hover:bg-gray-800 hover:text-white"
+          className="btn border-2 border-lime-600 bg-transparent text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
         >
           Login
         </Link>
-      </div>
+      )}
     </div>
   );
 };
