@@ -4,7 +4,6 @@ import { CiLocationOn } from "react-icons/ci";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider";
 import Swal from "sweetalert2";
-import { QueryClient } from "react-query";
 
 const ViewDetails = () => {
   const { user } = useContext(AuthContext);
@@ -68,16 +67,31 @@ const ViewDetails = () => {
       const data = await response.json();
 
       if (data.insertedId) {
-        document.getElementById("my_modal_3").close();
+        const updatedFoodStatus = {
+          foodStatus: "Requested",
+        };
 
-        Swal.fire({
-          title: "Success!",
-          text: " Added Successfully",
-          icon: "success",
-          confirmButtonText: "Done",
-        });
-        form.reset();
-        QueryClient.invalidateQueries("foodList");
+        fetch(`http://localhost:3000/food/${_id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedFoodStatus),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.modifiedCount > 0) {
+              document.getElementById("my_modal_3").close();
+              Swal.fire({
+                title: "Success!",
+                text: " Added Successfully",
+                icon: "success",
+                confirmButtonText: "Done",
+              });
+              form.reset();
+            }
+          });
       }
     } catch (error) {
       console.error("Error requesting food:", error);
