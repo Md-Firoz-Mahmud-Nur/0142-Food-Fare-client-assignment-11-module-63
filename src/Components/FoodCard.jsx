@@ -60,7 +60,7 @@ const FoodCard = ({foodCard}) => {
         </div>
 
         <Link
-          to={`/viewDetails/${_id}`}
+          to={`/food/${_id}`}
           className="btn btn-outline mt-3 w-full"
         >
           View Details
