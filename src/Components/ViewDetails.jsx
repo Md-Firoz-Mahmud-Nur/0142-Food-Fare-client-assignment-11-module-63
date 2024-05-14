@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet-async";
 import { CiLocationOn } from "react-icons/ci";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../AuthProvider";
+import Swal from "sweetalert2";
+import { QueryClient } from "react-query";
 
 const ViewDetails = () => {
   const { user } = useContext(AuthContext);
@@ -22,7 +24,7 @@ const ViewDetails = () => {
     additionalNotes,
   } = viewDetails;
 
-  const handleConfirmRequest = (e) => {
+  const handleConfirmRequest = async (e) => {
     e.preventDefault();
     const form = e.target;
     const foodName = form.foodName.value;
@@ -49,6 +51,37 @@ const ViewDetails = () => {
       additionalNotes,
     };
     console.log(requestedFood);
+
+    try {
+      const response = await fetch("http://localhost:3000/requestedFood", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(requestedFood),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to add food");
+      }
+
+      const data = await response.json();
+
+      if (data.insertedId) {
+        document.getElementById("my_modal_3").close();
+
+        Swal.fire({
+          title: "Success!",
+          text: " Added Successfully",
+          icon: "success",
+          confirmButtonText: "Done",
+        });
+        form.reset();
+        QueryClient.invalidateQueries("foodList");
+      }
+    } catch (error) {
+      console.error("Error requesting food:", error);
+    }
   };
 
   return (
@@ -286,7 +319,7 @@ const ViewDetails = () => {
                     </label>
                   </div>
                   <button className="btn btn-outline col-span-2  border-2 border-lime-600 bg-transparent   text-xl  text-lime-600 hover:border-lime-600 hover:bg-lime-600    hover:text-white">
-                    Add
+                    Confirm Request
                   </button>
                 </div>
               </form>
