@@ -1,8 +1,8 @@
-import { useLoaderData } from 'react-router-dom';
-import FoodCard from './FoodCard';
+import { Link, useLoaderData } from "react-router-dom";
+import FoodCard from "../FoodCard";
 
 const FeatureFood = () => {
-  const topSixQuantityFood = useLoaderData()
+  const topSixQuantityFood = useLoaderData();
   console.log(topSixQuantityFood);
   return (
     <div>
@@ -19,13 +19,17 @@ const FeatureFood = () => {
       </h1>
       <div className="grid grid-cols-6 gap-6">
         {topSixQuantityFood.map((foodCard) => {
-          return (
-            <FoodCard
-              key={foodCard._id}
-              foodCard={foodCard}
-            ></FoodCard>
-          );
+          return <FoodCard key={foodCard._id} foodCard={foodCard}></FoodCard>;
         })}
+      </div>
+      {/* show all btn */}
+      <div className="mt-12 flex justify-center">
+        <Link
+          to="/allAvailableFoods"
+          className=" btn btn-outline border-2  border-lime-600 bg-transparent text-xl   text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
+        >
+          Show All
+        </Link>
       </div>
     </div>
   );

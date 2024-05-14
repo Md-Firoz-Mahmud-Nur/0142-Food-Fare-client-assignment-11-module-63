@@ -11,6 +11,7 @@ import Register from "./Components/Register";
 import Home from "./Components/Home/Home";
 import AddFood from "./Components/AddFood";
 import PrivateRoute from "./PrivateRoute";
+import AllAvailableFoods from "./Components/AllAvailableFoods";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "/allAvailableFoods",
+        element: <AllAvailableFoods></AllAvailableFoods>,
+        loader: () => fetch("http://localhost:3000/allAvailableFoods"),
       },
       {
         path: "/addFood",
