@@ -5,6 +5,7 @@ import Slider from "./Slider";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import UsersReview from "./UsersReview";
+import Feedback from "./Feedback";
 AOS.init();
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
       <Slider></Slider>
       <FeatureFood></FeatureFood>
       <UsersReview></UsersReview>
+      <Feedback></Feedback>
     </div>
   );
 };
