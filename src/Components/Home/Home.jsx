@@ -4,6 +4,7 @@ import FeatureFood from "./FeatureFood";
 import Slider from "./Slider";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import UsersReview from "./UsersReview";
 AOS.init();
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
       <BannerLandingPage></BannerLandingPage>
       <Slider></Slider>
       <FeatureFood></FeatureFood>
+      <UsersReview></UsersReview>
     </div>
   );
 };
