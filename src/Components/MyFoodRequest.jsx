@@ -8,7 +8,9 @@ const MyFoodRequest = () => {
   const [myFoodRequests, setMyFoodRequests] = useState([]);
   console.log(myFoodRequests);
   useEffect(() => {
-    fetch(`http://localhost:3000/requestedFood/${user?.email}`)
+    fetch(
+      `https://0143-food-fare-server-assignment-11-module-63.vercel.app/requestedFood/${user?.email}`,
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyFoodRequests(data);
@@ -39,8 +41,12 @@ const MyFoodRequest = () => {
                 key={myFoodRequestSingleData._id}
                 className="border-base-300 font-medium"
               >
-                <td className="flex pl-2 pr-0 justify-center items-center">
-                  <img className="size-16" src={myFoodRequestSingleData.foodImageURL} alt="" />
+                <td className="flex items-center justify-center pl-2 pr-0">
+                  <img
+                    className="size-16"
+                    src={myFoodRequestSingleData.foodImageURL}
+                    alt=""
+                  />
                 </td>
                 <td className="pl-2 pr-0 text-lg md:text-xl">
                   {" "}

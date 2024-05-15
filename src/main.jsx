@@ -26,7 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:3000/sixFood"),
+        loader: () =>
+          fetch(
+            "https://0143-food-fare-server-assignment-11-module-63.vercel.app/sixFood",
+          ),
       },
       {
         path: "/login",
@@ -39,7 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/allAvailableFoods",
         element: <AllAvailableFoods></AllAvailableFoods>,
-        loader: () => fetch("http://localhost:3000/allAvailableFoods"),
+        loader: () =>
+          fetch(
+            "https://0143-food-fare-server-assignment-11-module-63.vercel.app/allAvailableFoods",
+          ),
       },
       {
         path: "/food/:id",
@@ -49,13 +55,17 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/food/${params.id}`),
+          fetch(
+            `https://0143-food-fare-server-assignment-11-module-63.vercel.app/food/${params.id}`,
+          ),
       },
       {
         path: "/updateFood/:id",
         element: <UpdateFood></UpdateFood>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/updateFood/${params.id}`),
+          fetch(
+            `https://0143-food-fare-server-assignment-11-module-63.vercel.app/updateFood/${params.id}`,
+          ),
       },
       {
         path: "/addFood",

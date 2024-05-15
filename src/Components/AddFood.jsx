@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider";
 import { Helmet } from "react-helmet-async";
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const AddFood = () => {
   const { user } = useContext(AuthContext);
@@ -35,13 +35,16 @@ const AddFood = () => {
       additionalNotes,
     };
     try {
-      const response = await fetch("http://localhost:3000/food", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
+      const response = await fetch(
+        "https://0143-food-fare-server-assignment-11-module-63.vercel.app/food",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newFood),
         },
-        body: JSON.stringify(newFood),
-      });
+      );
 
       if (!response.ok) {
         throw new Error("Failed to add food");

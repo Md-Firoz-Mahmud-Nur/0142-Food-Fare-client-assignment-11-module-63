@@ -61,13 +61,16 @@ const UpdateFood = () => {
     };
     console.log(updatedFoodData);
 
-    fetch(`http://localhost:3000/food/${_id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
+    fetch(
+      `https://0143-food-fare-server-assignment-11-module-63.vercel.app/food/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedFoodData),
       },
-      body: JSON.stringify(updatedFoodData),
-    })
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -84,7 +87,9 @@ const UpdateFood = () => {
 
   return (
     <div className=" container mx-auto mt-10 rounded-2xl ">
-      <Helmet><title>Food Fare | Update Food</title></Helmet>
+      <Helmet>
+        <title>Food Fare | Update Food</title>
+      </Helmet>
       <h2 className="text-center   text-4xl font-bold text-lime-600">
         Update Food
       </h2>

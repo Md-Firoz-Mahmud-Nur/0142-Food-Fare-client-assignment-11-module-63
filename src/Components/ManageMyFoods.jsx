@@ -9,7 +9,9 @@ const ManageMyFoods = () => {
   const [myEmailFood, setMyEmailFood] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/foodDonator/${user?.email}`)
+    fetch(
+      `https://0143-food-fare-server-assignment-11-module-63.vercel.app/foodDonator/${user?.email}`,
+    )
       .then((res) => res.json())
       .then((data) => {
         setMyEmailFood(data);
@@ -27,9 +29,12 @@ const ManageMyFoods = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/food/${_id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://0143-food-fare-server-assignment-11-module-63.vercel.app/food/${_id}`,
+          {
+            method: "DELETE",
+          },
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -70,8 +75,12 @@ const ManageMyFoods = () => {
                 key={singleMyEmailFood._id}
                 className="border-base-300 font-medium"
               >
-                <td className="flex pl-2 pr-0 justify-center items-center">
-                  <img className="size-16" src={singleMyEmailFood.foodImageURL} alt="" />
+                <td className="flex items-center justify-center pl-2 pr-0">
+                  <img
+                    className="size-16"
+                    src={singleMyEmailFood.foodImageURL}
+                    alt=""
+                  />
                 </td>
                 <td className="pl-2 pr-0 text-lg md:text-xl">
                   {" "}
@@ -81,7 +90,7 @@ const ManageMyFoods = () => {
                 <td className="pl-2 pr-0 text-lg">
                   {singleMyEmailFood.expireDate}{" "}
                 </td>
-                <td className="flex flex-col gap-3 px-2 md:flex-row items-center justify-center">
+                <td className="flex flex-col items-center justify-center gap-3 px-2 md:flex-row">
                   <Link
                     className=" btn btn-outline p-1 text-base md:px-4  md:text-xl"
                     to={`/updateFood/${singleMyEmailFood._id}`}

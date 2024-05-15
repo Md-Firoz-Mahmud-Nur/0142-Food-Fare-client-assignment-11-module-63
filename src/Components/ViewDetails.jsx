@@ -58,13 +58,16 @@ const ViewDetails = () => {
     console.log(requestedFood);
 
     try {
-      const response = await fetch("http://localhost:3000/requestedFood", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
+      const response = await fetch(
+        "https://0143-food-fare-server-assignment-11-module-63.vercel.app/requestedFood",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(requestedFood),
         },
-        body: JSON.stringify(requestedFood),
-      });
+      );
 
       if (!response.ok) {
         throw new Error("Failed to add food");
@@ -77,13 +80,16 @@ const ViewDetails = () => {
           foodStatus: "Requested",
         };
 
-        fetch(`http://localhost:3000/foodStatus/${_id}`, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
+        fetch(
+          `https://0143-food-fare-server-assignment-11-module-63.vercel.app/foodStatus/${_id}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedFoodStatus),
           },
-          body: JSON.stringify(updatedFoodStatus),
-        })
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
