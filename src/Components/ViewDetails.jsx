@@ -71,7 +71,7 @@ const ViewDetails = () => {
           foodStatus: "Requested",
         };
 
-        fetch(`http://localhost:3000/food/${_id}`, {
+        fetch(`http://localhost:3000/foodStatus/${_id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

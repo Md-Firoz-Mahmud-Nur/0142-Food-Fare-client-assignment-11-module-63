@@ -49,7 +49,7 @@ const ManageMyFoods = () => {
   return (
     <div className='"border-solid container mx-auto my-10 rounded-xl border border-black '>
       <Helmet>
-        <title>My List</title>
+        <title>Food Fare | Manage </title>
       </Helmet>
       <div className="overflow-x-auto    ">
         <table className="table text-center">

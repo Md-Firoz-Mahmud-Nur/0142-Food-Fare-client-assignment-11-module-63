@@ -1,10 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import FoodCard from "./FoodCard";
+import { Helmet } from "react-helmet-async";
 
 const AllAvailableFoods = () => {
   const allAvailableFoods = useLoaderData();
   return (
     <div>
+      <Helmet><title>Food Fare | All Available Food</title></Helmet>
       <h1
         data-aos="fade-up"
         data-aos-duration="1500"
