@@ -174,6 +174,7 @@ const AddFood = () => {
                   defaultValue={user?.displayName}
                   placeholder="Enter Your Name"
                   required
+                  readOnly="true"
                 />
               </label>
             </div>
@@ -189,6 +190,7 @@ const AddFood = () => {
                   defaultValue={user?.email}
                   placeholder="Enter Your Email"
                   required
+                  readOnly="true"
                 />
               </label>
             </div>
@@ -204,6 +206,7 @@ const AddFood = () => {
                   defaultValue={user?.photoURL}
                   placeholder="Enter Your Photo URL"
                   required
+                  readOnly="true"
                 />
               </label>
             </div>
