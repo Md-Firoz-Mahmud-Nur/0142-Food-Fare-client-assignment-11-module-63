@@ -24,9 +24,12 @@ const MyFoodRequest = () => {
           {/* head */}
           <thead>
             <tr className="border-black text-lg md:text-2xl ">
-              <th className="pl-2 pr-0 ">Spot</th>
-              <th className="pl-2 pr-0">Country</th>
-              <th className="pl-2 pr-0 text-lg">Cost</th>
+              <th className="pl-2 pr-0 ">Image</th>
+              <th className="pl-2 pr-0">Name</th>
+              <th className="pl-2 pr-0 text-lg">Donated By</th>
+              <th className="pl-2 pr-0 text-lg">Pickup At</th>
+              <th className="pl-2 pr-0 text-lg">Expire In</th>
+              <th className="pl-2 pr-0 text-lg">Requested In</th>
             </tr>
           </thead>
 
@@ -36,15 +39,24 @@ const MyFoodRequest = () => {
                 key={myFoodRequestSingleData._id}
                 className="border-base-300 font-medium"
               >
+                <td className="flex pl-2 pr-0 justify-center items-center">
+                  <img className="size-16" src={myFoodRequestSingleData.foodImageURL} alt="" />
+                </td>
                 <td className="pl-2 pr-0 text-lg md:text-xl">
                   {" "}
                   {myFoodRequestSingleData.foodName}{" "}
                 </td>
                 <td className=" pl-2 pr-0">
-                  {myFoodRequestSingleData.pickupLocation}
+                  {myFoodRequestSingleData.donatorUserName}
                 </td>
                 <td className="pl-2 pr-0 text-lg">
-                  {myFoodRequestSingleData.donatorUserName}{" "}
+                  {myFoodRequestSingleData.pickupLocation}{" "}
+                </td>
+                <td className="pl-2 pr-0 text-lg">
+                  {myFoodRequestSingleData.expireDate}{" "}
+                </td>
+                <td className="pl-2 pr-0 text-lg">
+                  {myFoodRequestSingleData.requestedTime}{" "}
                 </td>
               </tr>
             ))}
