@@ -164,7 +164,7 @@ const AddFood = () => {
 
             <div className="form-control col-span-2 w-full md:col-span-1">
               <label className="label">
-                <span className="label-text ">User Name</span>
+                <span className="label-text ">Donator Name</span>
               </label>
               <label className="input-group">
                 <input
@@ -180,7 +180,7 @@ const AddFood = () => {
             </div>
             <div className="form-control col-span-2 w-full md:col-span-1">
               <label className="label">
-                <span className="label-text ">User Email</span>
+                <span className="label-text ">Donator Email</span>
               </label>
               <label className="input-group">
                 <input
@@ -196,7 +196,7 @@ const AddFood = () => {
             </div>
             <div className="form-control col-span-2 w-full md:col-span-1">
               <label className="label">
-                <span className="label-text ">User Photo</span>
+                <span className="label-text ">Donator Photo URL</span>
               </label>
               <label className="input-group">
                 <input
