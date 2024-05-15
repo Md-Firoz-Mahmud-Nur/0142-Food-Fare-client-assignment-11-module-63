@@ -1,14 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider";
-import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 const ManageMyFoods = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
-
   const [myEmailFood, setMyEmailFood] = useState([]);
+
   useEffect(() => {
     fetch(`http://localhost:3000/foodDonator/${user?.email}`)
       .then((res) => res.json())
@@ -16,10 +15,8 @@ const ManageMyFoods = () => {
         setMyEmailFood(data);
       });
   }, [user]);
-  console.log(myEmailFood);
 
   const handleDelete = (_id) => {
-    console.log(_id);
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -30,24 +27,19 @@ const ManageMyFoods = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(
-          `http://localhost:3000/food/${_id}`,
-          {
-            method: "DELETE",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          },
-        )
+        fetch(`http://localhost:3000/food/${_id}`, {
+          method: "DELETE",
+        })
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
               Swal.fire({
                 title: "Deleted!",
-                text: "Your coffee has been deleted.",
+                text: "Your food item has been deleted.",
                 icon: "success",
               });
-
+              const remaining = myEmailFood.filter((food) => food._id !== _id);
+              setMyEmailFood(remaining);
             }
           });
       }
@@ -88,7 +80,7 @@ const ManageMyFoods = () => {
                 <td className="flex flex-col justify-center gap-3 px-2 md:flex-row">
                   <Link
                     className=" btn btn-outline p-1 text-base md:px-4  md:text-xl"
-                    to={`/touristSpot/${singleMyEmailFood._id}`}
+                    to={`/updateFood/${singleMyEmailFood._id}`}
                   >
                     <button>Update</button>
                   </Link>
