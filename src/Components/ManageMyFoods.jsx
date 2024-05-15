@@ -56,9 +56,10 @@ const ManageMyFoods = () => {
           {/* head */}
           <thead>
             <tr className="border-black text-lg md:text-2xl ">
-              <th className="pl-2 pr-0 ">Spot</th>
-              <th className="pl-2 pr-0">Country</th>
-              <th className="pl-2 pr-0 text-lg">Cost</th>
+              <th className="pl-2 pr-0 ">Image</th>
+              <th className="pl-2 pr-0 ">Name</th>
+              <th className="pl-2 pr-0">Status</th>
+              <th className="pl-2 pr-0 text-lg">Expire</th>
               <th className="px-2">Action</th>
             </tr>
           </thead>
@@ -69,15 +70,18 @@ const ManageMyFoods = () => {
                 key={singleMyEmailFood._id}
                 className="border-base-300 font-medium"
               >
+                <td className="flex pl-2 pr-0 justify-center items-center">
+                  <img className="size-16" src={singleMyEmailFood.foodImageURL} alt="" />
+                </td>
                 <td className="pl-2 pr-0 text-lg md:text-xl">
                   {" "}
                   {singleMyEmailFood.foodName}{" "}
                 </td>
                 <td className=" pl-2 pr-0">{singleMyEmailFood.foodStatus}</td>
                 <td className="pl-2 pr-0 text-lg">
-                  {singleMyEmailFood.foodQuantity}{" "}
+                  {singleMyEmailFood.expireDate}{" "}
                 </td>
-                <td className="flex flex-col justify-center gap-3 px-2 md:flex-row">
+                <td className="flex flex-col gap-3 px-2 md:flex-row items-center justify-center">
                   <Link
                     className=" btn btn-outline p-1 text-base md:px-4  md:text-xl"
                     to={`/updateFood/${singleMyEmailFood._id}`}
