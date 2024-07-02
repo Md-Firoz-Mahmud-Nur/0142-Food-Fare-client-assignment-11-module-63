@@ -1,5 +1,7 @@
 # Food Fare: Connect, Donate, and Share Meals
 
+Live Site: [Food Fare](https://s0142-food-fare-ass-11-mod-63.web.app/)
+
 ## Overview
 
 Food Fare is a web platform designed to facilitate food donation and distribution, aiming to reduce food waste and alleviate hunger in communities. Here's what you need to know about our project:
