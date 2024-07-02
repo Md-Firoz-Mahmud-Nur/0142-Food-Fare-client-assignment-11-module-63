@@ -9,12 +9,12 @@ const FeatureFood = () => {
       <h1
         data-aos="fade-up"
         data-aos-duration="1500"
-        className="my-5 rounded-t-lg  py-10 text-center text-4xl font-semibold "
+        className="my-5 rounded-t-lg  py-10 text-center text-4xl font-semibold text-lime-600 "
       >
-        Popular Tourist Spot.
-        <p className="mt-2 text-lg">
-          Explore the most sought-after destinations with breathtaking scenery
-          and rich cultural experiences.
+                Highest Quantity Of Food
+
+        <p className="mt-2 font-normal text-lg text-lime-700">
+        Feast of epic proportions, overflowing with culinary delights from around the world.
         </p>
       </h1>
       <div className="grid grid-cols-6 gap-6">

@@ -4,7 +4,7 @@ const UsersReview = () => {
       <h1
         data-aos="fade-up"
         data-aos-duration="1500"
-        className="text-center text-3xl font-bold"
+        className="text-center text-3xl font-bold text-lime-600"
       >
         Our Top Review
       </h1>
@@ -12,7 +12,7 @@ const UsersReview = () => {
       <div
         data-aos="fade-up"
         data-aos-duration="1000"
-        className="rounded-2xl border border-black  p-4"
+        className="rounded-2xl border border-lime-400 p-4 shadow-xl shadow-lime-50"
       >
         <h1 className="pb-2 text-2xl font-bold">Emily Smith</h1>
         <h2 className="text-lg font-medium">Amazing Experience!</h2>
@@ -27,7 +27,7 @@ const UsersReview = () => {
       <div
         data-aos="fade-up"
         data-aos-duration="1000"
-        className="rounded-2xl border border-black  p-4"
+        className="rounded-2xl border border-lime-400 p-4 shadow-xl shadow-lime-50"
       >
         <h1 className="pb-2 text-2xl font-bold">David Johnson</h1>
         <h2 className="text-lg font-medium">Exceeded Expectations!</h2>
@@ -42,7 +42,7 @@ const UsersReview = () => {
       <div
         data-aos="fade-up"
         data-aos-duration="1000"
-        className="rounded-2xl border border-black  p-4"
+        className="rounded-2xl border border-lime-400 p-4 shadow-xl shadow-lime-50"
       >
         <h1 className="pb-2 text-2xl font-bold">Michael Brown</h1>
         <h2 className="text-lg font-medium">Best Tour Ever!</h2>

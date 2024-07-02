@@ -27,6 +27,7 @@ const ViewDetails = () => {
     donatorUserName,
     donatorUserEmail,
     donatorUserPhotoURL,
+    additionalNotes,
   } = viewDetails;
 
   const handleConfirmRequest = async (e) => {
@@ -124,7 +125,7 @@ const ViewDetails = () => {
         Pickup Location : <CiLocationOn /> {pickupLocation}
       </h2>
 
-      <div className="container mx-auto mt-12 flex-col gap-10 rounded-3xl border-2 border-black p-10 lg:flex lg:flex-row ">
+      <div className="container mx-auto mt-12 flex-col gap-10 rounded-3xl border-2  border-lime-400 p-10 shadow-xl shadow-lime-50 lg:flex lg:flex-row">
         <Helmet>
           <title>Food Fare | {foodName}</title>
         </Helmet>
@@ -137,7 +138,7 @@ const ViewDetails = () => {
         </div>
         <div className="flex-grow">
           <div className="gap-5 md:flex">
-            <p className="flex items-center py-2 text-3xl font-semibold md:text-4xl md:font-bold ">
+            <p className="flex items-center py-2 text-3xl font-semibold text-lime-600 md:text-4xl md:font-bold">
               {foodName}
             </p>
           </div>
@@ -152,7 +153,7 @@ const ViewDetails = () => {
           </h3>
 
           <button
-            className="btn mt-4"
+            className="btn btn-outline  mt-4 border-2  border-lime-600 bg-transparent text-xl   text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
             onClick={() => document.getElementById("my_modal_3").showModal()}
           >
             Request
@@ -328,6 +329,7 @@ const ViewDetails = () => {
                           type="text"
                           className="input input-bordered w-full"
                           name="additionalNotes"
+                          defaultValue={additionalNotes}
                           placeholder="Your additional notes"
                           required
                         />

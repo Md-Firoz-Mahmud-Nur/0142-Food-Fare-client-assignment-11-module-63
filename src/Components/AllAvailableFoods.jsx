@@ -10,6 +10,7 @@ const AllAvailableFoods = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortAllAvailableFoods, setSortAllAvailableFoods] =
     useState(allAvailableFoods);
+  const [gridCols, setGridCols] = useState(6);
 
   const sortAllTouristSpotByCost = () => {
     setLoading(true);
@@ -31,6 +32,10 @@ const AllAvailableFoods = () => {
     setSortAllAvailableFoods(filteredFood);
   };
 
+  const handleToggleGridCols = () => {
+    setGridCols((prevCols) => (prevCols === 6 ? 4 : 6));
+  };
+
   return (
     <div>
       <Helmet>
@@ -39,12 +44,12 @@ const AllAvailableFoods = () => {
       <h1
         data-aos="fade-up"
         data-aos-duration="1500"
-        className="my-5 rounded-t-lg  py-10 text-center text-4xl font-semibold "
+        className="my-5 rounded-t-lg  py-10 text-center text-4xl font-semibold text-lime-600"
       >
-        Popular Tourist Spot.
+        All Available Food
         <p className="mt-2 text-lg">
-          Explore the most sought-after destinations with breathtaking scenery
-          and rich cultural experiences.
+          An immense spread encompassing every conceivable culinary delight and
+          delicacy imaginable.
         </p>
       </h1>
       {loading && (
@@ -52,12 +57,12 @@ const AllAvailableFoods = () => {
           <span className="loading loading-dots loading-lg"></span>
         </div>
       )}
-      <div className="  mb-5 flex  items-center justify-center">
-        <h3>Type to Search</h3>
+      <div className="mb-5 flex flex-col  items-center justify-center">
+        <h3 className="mb-2">Type to Search</h3>
         <input
           type="text"
           placeholder="Search by food name..."
-          className="input input-bordered mx-2 w-[300px]"
+          className="input input-bordered mx-2 w-[300px] border-lime-400 "
           value={searchQuery}
           onChange={handleSearchChange}
         />
@@ -67,7 +72,7 @@ const AllAvailableFoods = () => {
         <div
           tabIndex={0}
           role="button"
-          className="btn btn-outline m-1 bg-transparent pr-0"
+          className="btn btn-outline m-1 mt-3 border   border-lime-600   bg-transparent  text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
         >
           Sort By
           <RiArrowDropDownLine className="text-4xl " />
@@ -78,7 +83,7 @@ const AllAvailableFoods = () => {
         >
           <li>
             <button
-              className="btn btn-outline"
+              className="btn btn-outline border-lime-600   bg-transparent pr-0  text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
               onClick={sortAllTouristSpotByCost}
             >
               Expire Date
@@ -86,9 +91,23 @@ const AllAvailableFoods = () => {
           </li>
         </ul>
       </div>
+      <div className="mb-5 flex items-center justify-center">
+        <button
+          className="btn btn-outline border-lime-600   bg-transparent   text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
+          onClick={handleToggleGridCols}
+        >
+          Switch Columns
+        </button>
+      </div>
       <div className="grid grid-cols-6 gap-6">
         {sortAllAvailableFoods.map((foodCard) => {
-          return <FoodCard key={foodCard._id} foodCard={foodCard}></FoodCard>;
+          return (
+            <FoodCard
+              key={foodCard._id}
+              foodCard={foodCard}
+              gridCols={gridCols}
+            ></FoodCard>
+          );
         })}
       </div>
     </div>

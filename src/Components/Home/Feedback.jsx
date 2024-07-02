@@ -4,7 +4,7 @@ const Feedback = () => {
       <h1
         data-aos="fade-up"
         data-aos-duration="1500"
-        className="text-center text-3xl font-bold"
+        className="text-center text-3xl font-bold text-lime-600"
       >
         Your Valuable Feedback
       </h1>
@@ -12,7 +12,7 @@ const Feedback = () => {
       <div
         data-aos="fade-right"
         data-aos-duration="1000"
-        className="flex h-full flex-col rounded-2xl border border-black p-4"
+        className="flex h-full flex-col rounded-2xl border border-lime-400 shadow-xl shadow-lime-50 p-4"
       >
         <div className="form-control">
           <label className="label">
@@ -44,7 +44,7 @@ const Feedback = () => {
           ></textarea>
         </div>
         <br />
-        <button className="btn btn-outline w-full">Submit</button>
+        <button className="btn btn-outline mt-3 w-full  border border-lime-600 bg-transparent text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white">Submit</button>
       </div>
     </div>
   );
