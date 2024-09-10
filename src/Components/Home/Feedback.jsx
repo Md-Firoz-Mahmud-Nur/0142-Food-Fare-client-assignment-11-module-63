@@ -10,7 +10,7 @@ const Feedback = () => {
       </h1>
       <br />
       <div
-        data-aos="fade-right"
+        data-aos="fade-up"
         data-aos-duration="1000"
         className="flex h-full flex-col rounded-2xl border border-lime-400 shadow-xl shadow-lime-50 p-4"
       >

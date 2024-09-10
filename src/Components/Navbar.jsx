@@ -19,19 +19,74 @@ const Navbar = () => {
         </Link>
       </li>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `block rounded-md p-2 ${
+              isActive
+                ? "bg-lime-600 text-white"
+                : "hover:bg-lime-600 hover:text-white"
+            }`
+          }
+          to="/"
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/allAvailableFoods">All Available Foods</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `block rounded-md p-2 ${
+              isActive
+                ? "bg-lime-600 text-white"
+                : "hover:bg-lime-600 hover:text-white"
+            }`
+          }
+          to="/allAvailableFoods"
+        >
+          All Available Foods
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/addFood">Add Food</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `block rounded-md p-2 ${
+              isActive
+                ? "bg-lime-600 text-white"
+                : "hover:bg-lime-600 hover:text-white"
+            }`
+          }
+          to="/addFood"
+        >
+          Add Food
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/manageMyFoods">Manage My Foods </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `block rounded-md p-2 ${
+              isActive
+                ? "bg-lime-600 text-white"
+                : "hover:bg-lime-600 hover:text-white"
+            }`
+          }
+          to="/manageMyFoods"
+        >
+          Manage My Foods
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/myFoodRequest">My Food Request</NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `block rounded-md p-2 ${
+              isActive
+                ? "bg-lime-600 text-white"
+                : "hover:bg-lime-600 hover:text-white"
+            }`
+          }
+          to="/myFoodRequest"
+        >
+          My Food Request
+        </NavLink>
       </li>
     </>
   );
@@ -39,10 +94,14 @@ const Navbar = () => {
     <div className="container navbar mx-auto mt-6 bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-ghost hover:bg-lime-100 lg:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-5 w-5 text-lime-600 "
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -57,30 +116,30 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box  p-2 shadow bg-lime-50"
+            className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box  bg-lime-50 p-2 shadow"
           >
             {links}
           </ul>
         </div>
         <Link
           to="/"
-          className="btn btn-ghost items-center p-0 text-xl md:flex "
+          className="btn btn-ghost items-center p-0 text-xl hover:bg-lime-100 md:flex "
         >
           <img
-            className="size-10"
+            className="size-10 "
             src="https://i.ibb.co/BrkS7wm/Logo.png"
             alt=""
           />
         </Link>
         <Link
           to="/"
-          className="btn btn-ghost hidden items-center p-0 pl-2 text-2xl md:flex "
+          className="btn btn-ghost hidden items-center p-0 pl-2 text-2xl hover:bg-lime-100 md:flex"
         >
           Food Fare
         </Link>
       </div>
       <div className="navbar-center hidden lg:ml-20 lg:flex">
-        <ul className="menu menu-horizontal px-1 bg-lime-50">{links}</ul>
+        <ul className="menu menu-horizontal bg-lime-50 px-1">{links}</ul>
       </div>
       <div className="navbar-end gap-4"></div>
       {user ? (
