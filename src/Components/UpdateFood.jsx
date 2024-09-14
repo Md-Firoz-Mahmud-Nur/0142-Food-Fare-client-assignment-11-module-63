@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 
 const UpdateFood = () => {
   const getFoodData = useLoaderData();
-  console.log(getFoodData);
 
   const {
     _id,
@@ -19,19 +18,6 @@ const UpdateFood = () => {
     donatorUserPhotoURL,
     additionalNotes,
   } = getFoodData;
-
-  console.log(
-    foodName,
-    foodQuantity,
-    foodImageURL,
-    pickupLocation,
-    foodStatus,
-    expireDate,
-    donatorUserName,
-    donatorUserEmail,
-    donatorUserPhotoURL,
-    additionalNotes,
-  );
 
   const handleUpdateFoodData = async (e) => {
     e.preventDefault();
@@ -59,7 +45,6 @@ const UpdateFood = () => {
       donatorUserPhotoURL,
       additionalNotes,
     };
-    console.log(updatedFoodData);
 
     fetch(
       `https://0143-food-fare-server-assignment-11-module-63.vercel.app/food/${_id}`,
@@ -73,7 +58,6 @@ const UpdateFood = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "success!",

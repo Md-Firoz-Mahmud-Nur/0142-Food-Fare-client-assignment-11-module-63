@@ -16,7 +16,6 @@ const ViewDetails = () => {
     setCurrentTime(currentDate.toISOString().slice(0, 16));
   }, []);
 
-  console.log(user, viewDetails);
   const {
     _id,
     foodName,
@@ -56,7 +55,6 @@ const ViewDetails = () => {
       requestedUserEmail,
       additionalNotes,
     };
-    console.log(requestedFood);
 
     try {
       const response = await fetch(
@@ -93,7 +91,6 @@ const ViewDetails = () => {
         )
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             if (data.modifiedCount > 0) {
               document.getElementById("my_modal_3").close();
               Swal.fire({

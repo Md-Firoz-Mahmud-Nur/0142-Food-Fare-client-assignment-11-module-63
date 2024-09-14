@@ -3,7 +3,6 @@ import FoodCard from "../FoodCard";
 
 const FeatureFood = () => {
   const topSixQuantityFood = useLoaderData();
-  console.log(topSixQuantityFood);
   return (
     <div>
       <h1

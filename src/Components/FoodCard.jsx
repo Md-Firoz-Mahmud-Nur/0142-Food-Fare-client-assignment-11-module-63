@@ -8,32 +8,20 @@ const FoodCard = ({ foodCard, gridCols }) => {
     foodQuantity,
     foodImageURL,
     pickupLocation,
-    foodStatus,
     expireDate,
     donatorUserName,
     donatorUserPhotoURL,
     additionalNotes,
   } = foodCard;
-  console.log(
-    _id,
-    foodName,
-    foodQuantity,
-    foodImageURL,
-    pickupLocation,
-    foodStatus,
-    expireDate,
-    donatorUserName,
-    donatorUserPhotoURL,
-    additionalNotes,
-  );
-   const colSpanClass =
-    gridCols === 4 ? "col-span-4 md:col-span-6 lg:col-span-3" : "col-span-6 md:col-span-3 lg:col-span-2";
-    console.log(gridCols);
+
+
+  const colSpanClass =
+    gridCols === 4
+      ? "col-span-4 md:col-span-6 lg:col-span-3"
+      : "col-span-6 md:col-span-3 lg:col-span-2";
 
   return (
-    <div
-      className={`${colSpanClass}`}
-    >
+    <div className={`${colSpanClass}`}>
       <div className="card flex h-full w-full border border-lime-400 shadow-xl shadow-lime-50">
         <figure className="max-h-56 flex-grow">
           <img
@@ -45,7 +33,10 @@ const FoodCard = ({ foodCard, gridCols }) => {
         <div className="card-body flex-grow p-6 ">
           <h2 className="card-title text-3xl">
             {foodName}
-            <div className="badge badge-outline h-auto"> Expire : {expireDate}</div>
+            <div className="badge badge-outline h-auto">
+              {" "}
+              Expire : {expireDate}
+            </div>
           </h2>
 
           <div className="flex items-center">
@@ -74,7 +65,10 @@ const FoodCard = ({ foodCard, gridCols }) => {
               Remaining : {foodQuantity}
             </div>
           </div>
-          <Link to={`/food/${_id}`} className="btn btn-outline mt-3 w-full  border border-lime-600 bg-transparent text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white">
+          <Link
+            to={`/food/${_id}`}
+            className="btn btn-outline mt-3 w-full  border border-lime-600 bg-transparent text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
+          >
             View Details
           </Link>
         </div>
@@ -85,7 +79,7 @@ const FoodCard = ({ foodCard, gridCols }) => {
 
 FoodCard.propTypes = {
   foodCard: PropTypes.object.isRequired,
-  gridCols: PropTypes.number.isRequired,
+  gridCols: PropTypes.number,
 };
 
 export default FoodCard;

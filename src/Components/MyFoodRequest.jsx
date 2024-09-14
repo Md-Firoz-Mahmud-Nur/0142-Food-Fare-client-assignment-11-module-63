@@ -4,10 +4,8 @@ import { Helmet } from "react-helmet-async";
 
 const MyFoodRequest = () => {
   const { user, loading } = useContext(AuthContext);
-  console.log(user);
   const [myFoodRequests, setMyFoodRequests] = useState([]);
   const [loadingDot, setLoadingDot] = useState(loading);
-  console.log(myFoodRequests);
   useEffect(() => {
     setLoadingDot(true);
     fetch(
