@@ -17,7 +17,6 @@ const AllAvailableFoods = () => {
     const sortedFood = [...sortAllAvailableFoods].sort((a, b) => {
       const dateA = new Date(a.expireDate);
       const dateB = new Date(b.expireDate);
-      // Compare the dates
       return dateA - dateB;
     });
     setSortAllAvailableFoods(sortedFood);
