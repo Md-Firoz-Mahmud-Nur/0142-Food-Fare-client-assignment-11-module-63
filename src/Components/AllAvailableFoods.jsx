@@ -56,39 +56,41 @@ const AllAvailableFoods = () => {
           <span className="loading loading-dots loading-lg"></span>
         </div>
       )}
-      <div className="mb-5 flex flex-col  items-center justify-center">
-        <h3 className="mb-2">Type to Search</h3>
-        <input
-          type="text"
-          placeholder="Search by food name..."
-          className="input input-bordered mx-2 w-[300px] border-lime-400 "
-          value={searchQuery}
-          onChange={handleSearchChange}
-        />
-      </div>
-
-      <div className="dropdown dropdown-bottom mb-20 flex  justify-center">
-        <div
-          tabIndex={0}
-          role="button"
-          className="btn btn-outline m-1 mt-3 border   border-lime-600   bg-transparent  text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
-        >
-          Sort By
-          <RiArrowDropDownLine className="text-4xl " />
+      <div className="flex justify-center ">
+        <div className="mb-5 flex flex-col  items-center justify-center">
+          <h3 className="mb-2">Type to Search</h3>
+          <input
+            type="text"
+            placeholder="Search by food name..."
+            className="input input-bordered mx-2 w-[300px] border-lime-400 "
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
         </div>
-        <ul
-          tabIndex={0}
-          className="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow"
-        >
-          <li>
-            <button
-              className="btn btn-outline border-lime-600   bg-transparent pr-0  text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
-              onClick={sortAllTouristSpotByCost}
-            >
-              Expire Date
-            </button>
-          </li>
-        </ul>
+
+        <div className="dropdown dropdown-bottom mb-20 flex  justify-center">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-outline m-1 mt-3 border   border-lime-600   bg-transparent  text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
+          >
+            Sort By
+            <RiArrowDropDownLine className="text-4xl " />
+          </div>
+          <ul
+            tabIndex={0}
+            className="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow"
+          >
+            <li>
+              <button
+                className="btn btn-outline border-lime-600   bg-transparent pr-0  text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
+                onClick={sortAllTouristSpotByCost}
+              >
+                Expire Date
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
       <div className="mb-5 flex items-center justify-center">
         <button
