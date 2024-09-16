@@ -56,8 +56,8 @@ const AllAvailableFoods = () => {
           <span className="loading loading-dots loading-lg"></span>
         </div>
       )}
-      <div className="flex justify-center ">
-        <div className="mb-5 flex flex-col  items-center justify-center">
+      <div className="mb-20 flex justify-center items-end">
+        <div className="flex flex-col  items-center justify-center">
           <h3 className="mb-2">Type to Search</h3>
           <input
             type="text"
@@ -68,11 +68,11 @@ const AllAvailableFoods = () => {
           />
         </div>
 
-        <div className="dropdown dropdown-bottom mb-20 flex  justify-center">
+        <div className="dropdown dropdown-bottom flex  justify-center">
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-outline m-1 mt-3 border   border-lime-600   bg-transparent  text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
+            className="btn btn-outline   border   border-lime-600   bg-transparent  text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
           >
             Sort By
             <RiArrowDropDownLine className="text-4xl " />
