@@ -56,50 +56,53 @@ const AllAvailableFoods = () => {
           <span className="loading loading-dots loading-lg"></span>
         </div>
       )}
-      <div className="mb-20 flex justify-center items-end">
-        <div className="flex flex-col  items-center justify-center">
-          <h3 className="mb-2">Type to Search</h3>
-          <input
-            type="text"
-            placeholder="Search by food name..."
-            className="input input-bordered mx-2 w-[300px] border-lime-400 "
-            value={searchQuery}
-            onChange={handleSearchChange}
-          />
-        </div>
-
-        <div className="dropdown dropdown-bottom flex  justify-center">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-outline   border   border-lime-600   bg-transparent  text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
-          >
-            Sort By
-            <RiArrowDropDownLine className="text-4xl " />
+      <div className="mb-20 flex items-end justify-between">
+        <div className="w-[164px]"></div>
+        <div className="flex items-end justify-center">
+          <div className="flex flex-col  items-center justify-center">
+            <h3 className="mb-2">Type to Search</h3>
+            <input
+              type="text"
+              placeholder="Search by food name..."
+              className="input input-bordered mx-2 w-[300px] border-lime-400 "
+              value={searchQuery}
+              onChange={handleSearchChange}
+            />
           </div>
-          <ul
-            tabIndex={0}
-            className="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow"
+          <div className="dropdown dropdown-bottom flex  justify-center">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-outline   border   border-lime-600   bg-transparent  text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
+            >
+              Sort By
+              <RiArrowDropDownLine className="text-4xl " />
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow"
+            >
+              <li>
+                <button
+                  className="btn btn-outline border-lime-600   bg-transparent pr-0  text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
+                  onClick={sortAllTouristSpotByCost}
+                >
+                  Expire Date
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className=" flex items-center justify-center">
+          <button
+            className="btn btn-outline border-lime-600   bg-transparent   text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
+            onClick={handleToggleGridCols}
           >
-            <li>
-              <button
-                className="btn btn-outline border-lime-600   bg-transparent pr-0  text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
-                onClick={sortAllTouristSpotByCost}
-              >
-                Expire Date
-              </button>
-            </li>
-          </ul>
+            Switch Columns
+          </button>
         </div>
       </div>
-      <div className="mb-5 flex items-center justify-center">
-        <button
-          className="btn btn-outline border-lime-600   bg-transparent   text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
-          onClick={handleToggleGridCols}
-        >
-          Switch Columns
-        </button>
-      </div>
+
       <div className="grid grid-cols-6 gap-6">
         {sortAllAvailableFoods.map((foodCard) => {
           return (
