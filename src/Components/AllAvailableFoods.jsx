@@ -56,31 +56,31 @@ const AllAvailableFoods = () => {
           <span className="loading loading-dots loading-lg"></span>
         </div>
       )}
-      <div className="mb-20 flex items-end justify-between">
-        <div className="w-[164px]"></div>
-        <div className="flex items-end justify-center">
-          <div className="flex flex-col  items-center justify-center">
+      <div className="mb-20 flex items-end justify-center md:justify-around lg:justify-between">
+        <div className="w-0 lg:w-[164px]"></div>
+        <div className="flex flex-col items-end justify-center md:flex-row ">
+          <div className="mb-5 flex  flex-col items-center justify-center md:mb-0">
             <h3 className="mb-2">Type to Search</h3>
             <input
               type="text"
               placeholder="Search by food name..."
-              className="input input-bordered mx-2 w-[300px] border-lime-400 "
+              className="input input-bordered mx-0 md:mx-2 w-[250px] md:w-[300px] border-lime-400 "
               value={searchQuery}
               onChange={handleSearchChange}
             />
           </div>
-          <div className="dropdown dropdown-bottom flex  justify-center">
+          <div className="dropdown dropdown-bottom flex w-full justify-center">
             <div
               tabIndex={0}
               role="button"
-              className="btn btn-outline   border   border-lime-600   bg-transparent  text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
+              className="btn btn-outline   border   border-lime-600   bg-transparent  text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white "
             >
               Sort By
               <RiArrowDropDownLine className="text-4xl " />
             </div>
             <ul
               tabIndex={0}
-              className="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow"
+              className="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow "
             >
               <li>
                 <button
@@ -93,7 +93,7 @@ const AllAvailableFoods = () => {
             </ul>
           </div>
         </div>
-        <div className=" flex items-center justify-center">
+        <div className=" hidden items-center justify-center md:flex">
           <button
             className="btn btn-outline border-lime-600   bg-transparent   text-lg text-lime-600  hover:border-lime-600 hover:bg-lime-600 hover:text-white"
             onClick={handleToggleGridCols}
