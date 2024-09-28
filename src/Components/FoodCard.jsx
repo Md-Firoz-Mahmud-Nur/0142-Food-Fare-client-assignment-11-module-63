@@ -17,7 +17,7 @@ const FoodCard = ({ foodCard, gridCols }) => {
 
   const colSpanClass =
     gridCols === 4
-      ? "col-span-4 md:col-span-6 lg:col-span-3"
+      ? "col-span-6 md:col-span-6 lg:col-span-3"
       : "col-span-6 md:col-span-3 lg:col-span-2";
 
   return (
